@@ -27,9 +27,9 @@ public class Trip
 	*/
 	public int getShortestLayover()
 	{
-		int interval = 1000000;
+		int interval = getDuration();
 		if (flights.size() >= 2) {
-			for (int x = 0; x < flights.size(); x += 1) {
+			for (int x = 0; x < flights.size() - 1; x += 1) {
 				if ((flights.get(x).getArrivalTime().minutesUntil(flights.get(x+1).getDepartureTime()) ) < interval) {
 					interval = flights.get(x).getArrivalTime().minutesUntil(flights.get(x+1).getDepartureTime());
 				}
